@@ -1,0 +1,26 @@
+---
+# tasks file for prometheus
+- name: PROMETHEUS - Create a directory if it does not exist
+  ansible.builtin.file:
+    path: "{{ ansible_workdir }}/prometheus"
+    state: directory
+    mode: '0755'
+
+- name: PROMETHEUS - Replace prometheus config
+  ansible.builtin.template:
+    src: prometheus.yml.j2
+    dest: "{{ ansible_workdir }}/prometheus/prometheus.yml"
+
+- name: PROMETHEUS - Copy record rules
+  ansible.builtin.copy:
+    src: node-rules.yml
+    dest: "{{ ansible_workdir }}/prometheus/node-rules.yml"
+
+- name: PROMETHEUS - Copy docker-compose file
+  ansible.builtin.template:
+    src: docker-compose.yml.j2
+    dest: "{{ ansible_workdir }}/prometheus/docker-compose.yml"
+
+- name: PROMETHEUS - Start container with Docker Compose
+  community.docker.docker_compose_v2:
+    project_src: "{{ ansible_workdir }}/prometheus"
