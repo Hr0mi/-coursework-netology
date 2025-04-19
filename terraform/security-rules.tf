@@ -238,9 +238,9 @@ resource "yandex_vpc_security_group_rule" "kibana-egress" {
 resource "yandex_vpc_security_group_rule" "lb-access" {
   security_group_binding = yandex_vpc_security_group.load-balancer.id
   direction              = "ingress"
-  description            = "LB: incoming requests from web"
-  v4_cidr_blocks = ["0.0.0.0/0"]
-  port                   = 443
+  description            = "LB: incoming HTTP from internet"
+  v4_cidr_blocks         = ["0.0.0.0/0"]
+  port                   = 80
   protocol               = "TCP"
 }
 
