@@ -1,0 +1,22 @@
+#cloud-config
+disable_root: true
+timezone: Moscow
+repo_update: true
+repo_upgrade: true
+apt:
+  preserve_sources_list: true
+
+#packages:
+#  - python3
+#  - python3-pip
+#
+#runcmd:
+#  - [ sysctl, -w, vm.max_map_count=262144 ]
+
+users:
+ - name: ansible
+   groups: sudo
+   shell: /bin/bash
+   sudo: ['ALL=(ALL) NOPASSWD:ALL']
+   ssh-authorized-keys:
+     - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKtRGiRY8xgoaoRgFAP2zbn73GfBX7xkGZSTaLodiJDk andr-mozha@yandex.ru
