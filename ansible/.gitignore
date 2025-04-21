@@ -1,0 +1,16 @@
+# Terraform state and secrets
+*.tfstate
+*.tfstate.backup
+terraform.tfvars
+.terraform/
+
+# Ansible Vault backup files (если есть)
+*.vault
+
+# System files
+*.log
+*.swp
+*.tmp
+.DS_Store
+.idea/
+.vscode/
