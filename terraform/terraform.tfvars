@@ -1,8 +1,0 @@
-yc_cloud_id       = "b1g15n5ppec2inp32t80"
-yc_folder_id      = "b1gmcfm3lo99laoohqlp"
-pg_admin_password = "securepgpassword"
-kibana_password   = "securekibanapass"
-#tls_cert_id       = "none"
-telegram_bot_token = "none"
-telegram_chat_id   = "none"
-ansible_workdir    = "../ansible"
